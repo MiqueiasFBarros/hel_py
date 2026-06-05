@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{a4paper, margin=2.5cm}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true
+}
+
+\title{Desenvolvimento de um Interpretador de Escopo por Indentacao com Interface Grafica}
+\author{Miqueias Ferreira Barros}
+\date{Junho de 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducao}
+
+Este trabalho apresenta o \textit{hel\_py}, um ambiente de desenvolvimento integrado e interpretador estruturado construido na linguagem C\# com Windows Forms. O objetivo e analisar e executar algoritmos escritos em um subconjunto da linguagem Python, com foco na identificacao de comandos, variaveis, condicionais, lacos e blocos definidos por indentacao.
+
+\section{Arquitetura Gramatical}
+
+A implementacao utiliza um modelo de avaliacao direta, no qual o codigo fonte e segmentado em linhas e interpretado em tempo de execucao. A tabela de simbolos armazena variaveis inteiras e permite que as expressoes sejam reavaliadas durante a execucao.
+
+A gramatica reconhece:
+
+\begin{itemize}
+    \item atribuicoes numericas;
+    \item expressoes aritmeticas com soma, subtracao, multiplicacao, divisao, parenteses e precedencia;
+    \item saida padrao por meio de \texttt{print()};
+    \item estrutura condicional \texttt{if condicao:} com alternativa \texttt{else:};
+    \item estrutura de repeticao \texttt{while condicao:};
+    \item comparadores como \texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=}, \texttt{==} e \texttt{!=};
+    \item abertura e salvamento de arquivos Python com extensao \texttt{.py}.
+\end{itemize}
+
+\section{Validacao Sintatica de Escopo por Indentacao}
+
+Ao contrario de linguagens que delimitam blocos com chaves, Python utiliza recuo textual. O motor desenvolvido calcula a quantidade de espacos antes do primeiro caractere valido de cada linha. Quando encontra comandos que iniciam blocos, como \texttt{if} e \texttt{while}, o interpretador chama recursivamente a rotina de processamento para o nivel seguinte de indentacao.
+
+Essa estrategia permite isolar blocos internos e encerrar a execucao do escopo atual quando a indentacao retorna ao nivel anterior. O projeto adotou quatro espacos como padrao de indentacao para facilitar a validacao e a demonstracao.
+
+\section{Interface Grafica}
+
+A interface foi desenvolvida com Windows Forms. A janela principal possui um editor de codigo a esquerda, um console de saida a direita e um painel superior com comandos para criar, abrir, salvar e executar arquivos Python. O tema escuro facilita a leitura e aproxima a aplicacao de uma IDE moderna.
+
+\section{Uso de Inteligencia Artificial e Resolucao de Erros}
+
+Durante o desenvolvimento, ferramentas de inteligencia artificial foram utilizadas como apoio para organizar a arquitetura do interpretador, revisar a logica de percorrimento de blocos e melhorar mensagens de erro. Um ponto corrigido foi a necessidade de permitir atribuicoes como \texttt{x = x + 1}, essenciais para demonstrar lacos \texttt{while} funcionais.
+
+Tambem foi adicionado um limite de seguranca para repeticoes, evitando que programas com condicoes sempre verdadeiras deixem a aplicacao presa em execucao infinita.
+
+\section{Conclusao}
+
+A construcao do \textit{hel\_py} consolida conceitos de analise lexica, interpretacao, controle de fluxo e manipulacao de estruturas de dados em memoria. O projeto demonstra como uma aplicacao C\# pode reconhecer elementos fundamentais de Python e executar comandos simples em uma interface grafica propria.
+
+\end{document}
