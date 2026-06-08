@@ -1,32 +1,58 @@
 # hel_py
 
-`hel_py` e um compilador visual/IDE academica em C# Windows Forms para interpretar um subconjunto simples da linguagem Python.
+`hel_py` e um compilador didatico baseado em Python, desenvolvido em C# com Windows Forms. O projeto tambem possui uma interface grafica com caracteristicas de mini IDE, permitindo escrever codigo, abrir e salvar arquivos, compilar/executar algoritmos e visualizar a saida em um console interno.
 
-## Funcionalidades
+O objetivo do projeto e demonstrar, de forma academica e pratica, conceitos basicos de compiladores, como leitura de codigo-fonte, validacao de comandos, avaliacao de expressoes, controle de fluxo, tratamento de escopo por indentacao e exibicao de mensagens de erro.
 
-- Editor de codigo com fonte monoespacada.
-- Console de saida em estilo terminal.
-- Criacao de novo arquivo.
-- Abertura de arquivos `.py`.
-- Salvamento e "Salvar como" de arquivos `.py`.
+## Grupo
+
+- Arthur da Silva - 01622306
+- Gabriel Luan Soares de Oliveira - 01624195
+- Joao Victor Florencio - 01605737
+- Lucas Enthony Gomes Ferreira - 01576401
+- Miqueias Ferreira Barros - 01595460
+- Patrick Jose Viana Costa - 01594218
+
+## Sobre o projeto
+
+O compilador reconhece um subconjunto simples da linguagem Python. Ele nao implementa todos os recursos da linguagem original, pois o foco esta nos requisitos da atividade e na demonstracao dos principais conceitos de compilacao e execucao.
+
+A aplicacao possui:
+
+- editor de codigo;
+- botoes para criar, abrir, salvar e salvar como;
+- area de compilacao;
+- console de saida;
+- realce visual de sintaxe;
+- suporte a arquivos `.py`;
+- exemplos prontos para teste e apresentacao.
+
+## Funcionalidades da linguagem
+
 - Execucao de `print()`.
 - Atribuicao de variaveis numericas.
-- Expressoes aritmeticas com `+`, `-`, `*`, `/`, parenteses e precedencia.
-- Condicionais `if`.
+- Atualizacao de variaveis, como `x = x + 1`.
+- Expressoes aritmeticas com `+`, `-`, `*` e `/`.
+- Uso de parenteses e precedencia de operadores.
+- Condicional `if`.
 - Alternativa condicional `else`.
-- Repeticoes `while`.
+- Repeticao com `while`.
 - Comparadores `>`, `<`, `>=`, `<=`, `==` e `!=`.
 - Comentarios com `#`.
 - Validacao de blocos por indentacao de 4 espacos.
+- Mensagens para erros como comando invalido, indentacao incorreta, variavel nao declarada e divisao por zero.
 
 ## Como executar
 
-1. Abra `hel_py.csproj` no Visual Studio 2022.
+### Pelo Visual Studio
+
+1. Abra o arquivo `hel_py.csproj` no Visual Studio 2022.
 2. Confira se a carga de trabalho "Desenvolvimento para desktop com .NET" esta instalada.
 3. Pressione `F5` ou clique em "Iniciar".
-4. Digite um algoritmo Python no editor da esquerda e clique em `Executar hel_py`.
+4. Digite um algoritmo no editor da esquerda.
+5. Clique em `Executar hel_py`.
 
-Tambem e possivel compilar pelo terminal:
+### Pelo terminal
 
 ```powershell
 dotnet build
@@ -58,15 +84,19 @@ Saida esperada:
 Fim do programa
 ```
 
-## Exemplo completo
+## Exemplos incluidos
 
-O arquivo `examples/combate_chefe.py` contem um teste mais completo com `if`, `while`, variaveis, parenteses e calculos encadeados.
+- `examples/demo.py`: exemplo principal para apresentacao, com `while`, `if`, `else`, variaveis e `print`.
+- `examples/if_else.py`: exemplo curto para demonstrar o requisito de condicional.
+- `examples/combate_chefe.py`: exemplo mais completo, combinando laco, condicoes, calculos e mensagens.
+- `examples/teste.py`: exemplo adicional para testes de logica e repeticao.
 
-## Estrutura
+## Estrutura do projeto
 
-- `Form1.cs`: motor de interpretacao e eventos da interface.
-- `Form1.Designer.cs`: organizacao visual da IDE.
-- `docs/relatorio.tex`: modelo de relatorio academico em LaTeX.
-- `examples/demo.py`: codigo de teste para apresentar em sala.
-- `examples/combate_chefe.py`: codigo de teste completo para validacao do interpretador.
-- `examples/if_else.py`: codigo curto para demonstrar o requisito de `if else`.
+- `Form1.cs`: motor de compilacao/execucao, tratamento dos comandos e eventos da interface.
+- `Form1.Designer.cs`: organizacao visual da interface grafica.
+- `ModernControls.cs`: componentes visuais personalizados.
+- `Program.cs`: ponto de entrada da aplicacao.
+- `Assets/`: imagens e recursos visuais.
+- `docs/relatorio.tex`: relatorio academico em LaTeX.
+- `examples/`: codigos de teste usados para validacao e apresentacao.
