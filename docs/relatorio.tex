@@ -14,8 +14,15 @@
     breaklines=true
 }
 
-\title{Desenvolvimento de um Interpretador de Escopo por Indentacao com Interface Grafica}
-\author{Miqueias Ferreira Barros}
+\title{Desenvolvimento de um Compilador Didatico Baseado em Python com Interface Grafica}
+\author{
+Arthur da Silva - 01622306\\
+Gabriel Luan Soares de Oliveira - 01624195\\
+Joao Victor Florencio - 01605737\\
+Lucas Enthony Gomes Ferreira - 01576401\\
+Miqueias Ferreira Barros - 01595460\\
+Patrick Jose Viana Costa - 01594218
+}
 \date{Junho de 2026}
 
 \begin{document}
@@ -24,42 +31,181 @@
 
 \section{Introducao}
 
-Este trabalho apresenta o \textit{hel\_py}, um ambiente de desenvolvimento integrado e interpretador estruturado construido na linguagem C\# com Windows Forms. O objetivo e analisar e executar algoritmos escritos em um subconjunto da linguagem Python, com foco na identificacao de comandos, variaveis, condicionais, lacos e blocos definidos por indentacao.
+Este trabalho apresenta o \textit{hel\_py}, um compilador didatico construido na linguagem C\# com Windows Forms. O projeto foi desenvolvido com o objetivo de demonstrar, de forma pratica, conceitos de compiladores e interpretadores, como leitura de codigo fonte, reconhecimento de comandos, avaliacao de expressoes, controle de fluxo e tratamento de escopo.
 
-\section{Arquitetura Gramatical}
+A linguagem escolhida como referencia foi Python, por possuir uma sintaxe simples e bastante conhecida. Entretanto, o sistema nao busca implementar toda a linguagem Python original. O foco esta em um subconjunto didatico, suficiente para demonstrar comandos fundamentais como atribuicao de variaveis, saida de dados, expressoes aritmeticas, condicional \texttt{if else}, repeticao com \texttt{while} e blocos definidos por indentacao.
 
-A implementacao utiliza um modelo de avaliacao direta, no qual o codigo fonte e segmentado em linhas e interpretado em tempo de execucao. A tabela de simbolos armazena variaveis inteiras e permite que as expressoes sejam reavaliadas durante a execucao.
+Como diferencial, o projeto possui uma interface grafica propria, permitindo que o usuario escreva o codigo, salve arquivos, abra exemplos, compile a estrutura do programa e execute o resultado dentro da propria aplicacao. Dessa forma, alem de cumprir o papel de compilador didatico, o \textit{hel\_py} tambem funciona como uma pequena IDE academica voltada para demonstracao em sala de aula.
 
-A gramatica reconhece:
+\section{Objetivos do Projeto}
+
+O objetivo principal do trabalho foi criar um compilador funcional, utilizando uma linguagem de programacao a escolha da equipe. A equipe optou por desenvolver o compilador didatico em C\#, pois essa linguagem oferece boa integracao com Windows Forms e facilita a criacao de uma interface visual para entrada e saida de dados.
+
+Entre os objetivos especificos, destacam-se:
 
 \begin{itemize}
-    \item atribuicoes numericas;
-    \item expressoes aritmeticas com soma, subtracao, multiplicacao, divisao, parenteses e precedencia;
-    \item saida padrao por meio de \texttt{print()};
-    \item estrutura condicional \texttt{if condicao:} com alternativa \texttt{else:};
-    \item estrutura de repeticao \texttt{while condicao:};
-    \item comparadores como \texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=}, \texttt{==} e \texttt{!=};
-    \item abertura e salvamento de arquivos Python com extensao \texttt{.py}.
+    \item criar um compilador com editor, comandos de arquivo, console e area de compilacao;
+    \item reconhecer comandos basicos inspirados em Python;
+    \item implementar estrutura condicional com \texttt{if} e \texttt{else};
+    \item implementar estrutura de repeticao com \texttt{while};
+    \item validar blocos de codigo por meio de indentacao;
+    \item executar expressoes aritmeticas com precedencia de operadores;
+    \item exibir a saida do programa em um console interno;
+    \item documentar o funcionamento do sistema em relatorio escrito em LaTeX;
+    \item versionar o codigo e os arquivos do projeto em repositorio GitHub.
 \end{itemize}
 
-\section{Validacao Sintatica de Escopo por Indentacao}
+\section{Tecnologias Utilizadas}
 
-Ao contrario de linguagens que delimitam blocos com chaves, Python utiliza recuo textual. O motor desenvolvido calcula a quantidade de espacos antes do primeiro caractere valido de cada linha. Quando encontra comandos que iniciam blocos, como \texttt{if} e \texttt{while}, o interpretador chama recursivamente a rotina de processamento para o nivel seguinte de indentacao.
+O desenvolvimento foi realizado com a linguagem C\# e a plataforma .NET. A interface grafica foi construida com Windows Forms, tecnologia adequada para aplicacoes desktop simples e para projetos academicos que precisam demonstrar eventos, formularios, botoes, caixas de texto e componentes visuais.
+
+O relatorio foi produzido em LaTeX, utilizando uma estrutura tipografica simples com secoes, listas e trechos de codigo. Para versionamento, o projeto utiliza Git e foi preparado para entrega no GitHub, incluindo tanto o codigo-fonte do compilador quanto o arquivo do relatorio.
+
+\section{Arquitetura Geral do Sistema}
+
+O \textit{hel\_py} foi organizado em duas partes principais: a interface grafica e o motor de compilacao e execucao. A interface e responsavel pela interacao com o usuario, enquanto o motor faz a leitura, validacao, estruturacao e execucao das instrucoes escritas no editor.
+
+Na interface, o usuario pode criar um novo arquivo, abrir arquivos com extensao \texttt{.py}, salvar o conteudo digitado e executar o codigo. O resultado da execucao e exibido em uma area de console, simulando a saida padrao de um programa.
+
+O motor de compilacao recebe o texto do editor, divide o conteudo em linhas, remove comentarios, verifica a indentacao e identifica qual tipo de comando esta sendo processado. A partir disso, o sistema gera uma representacao logica do fluxo do programa e decide se deve realizar uma atribuicao, imprimir um valor, avaliar uma condicao, executar um bloco condicional ou repetir um bloco de codigo.
+
+\section{Subconjunto da Linguagem Compilada}
+
+A linguagem aceita pelo projeto e inspirada em Python, mas foi limitada aos comandos necessarios para cumprir o objetivo academico. A gramatica reconhecida pelo compilador inclui:
+
+\begin{itemize}
+    \item atribuicoes numericas, como \texttt{x = 10};
+    \item atualizacao de variaveis, como \texttt{x = x + 1};
+    \item expressoes aritmeticas com \texttt{+}, \texttt{-}, \texttt{*} e \texttt{/};
+    \item uso de parenteses para alterar a precedencia das operacoes;
+    \item impressao de textos e valores com \texttt{print()};
+    \item comentarios iniciados com \texttt{\#};
+    \item estrutura condicional \texttt{if condicao:};
+    \item alternativa condicional \texttt{else:};
+    \item estrutura de repeticao \texttt{while condicao:};
+    \item comparadores \texttt{>}, \texttt{<}, \texttt{>=}, \texttt{<=}, \texttt{==} e \texttt{!=}.
+\end{itemize}
+
+Esse conjunto permite construir algoritmos simples, mas completos o suficiente para demonstrar entrada logica, tomada de decisao, repeticao e manipulacao de variaveis.
+
+\section{Processo de Compilacao e Execucao}
+
+O processo do \textit{hel\_py} combina uma etapa de compilacao didatica com uma etapa de execucao. Na compilacao, o codigo digitado pelo usuario e analisado, separado em linhas, validado e convertido em uma representacao textual de comandos e desvios, semelhante a uma forma intermediaria simplificada. Na execucao, essa estrutura e percorrida para produzir o resultado no console da aplicacao.
+
+O codigo digitado pelo usuario nao e transformado em um arquivo executavel separado, como ocorre em compiladores profissionais completos. Mesmo assim, o projeto atende ao conceito academico de compilador didatico, pois analisa codigo-fonte, reconhece estruturas da linguagem, valida regras sintaticas, organiza o fluxo de execucao e apresenta uma etapa de compilacao antes da execucao do programa.
+
+O primeiro passo e separar o codigo em linhas. Em seguida, cada linha passa por uma limpeza basica, removendo comentarios e ignorando espacos desnecessarios. Depois disso, o compilador verifica a indentacao da linha e identifica se ela pertence ao bloco atual.
+
+Quando a linha representa uma atribuicao, o sistema separa o nome da variavel e a expressao a direita do sinal de igualdade. A expressao e calculada e o resultado e armazenado em uma tabela de simbolos. Essa tabela funciona como a memoria do programa interpretado, guardando o valor atual de cada variavel.
+
+Quando a linha representa um \texttt{print()}, o sistema avalia o conteudo informado entre parenteses. Caso seja um texto entre aspas, ele e exibido diretamente. Caso seja uma variavel ou expressao, o valor e calculado antes de ser mostrado no console.
+
+\section{Avaliacao de Expressoes}
+
+Um dos pontos importantes do projeto foi a avaliacao de expressoes aritmeticas. O compilador precisa respeitar a ordem correta das operacoes, evitando resultados incorretos. Por exemplo, a expressao \texttt{2 + 3 * 4} deve resultar em \texttt{14}, pois a multiplicacao tem prioridade sobre a soma.
+
+Para isso, a avaliacao foi organizada em etapas, separando soma e subtracao, multiplicacao e divisao, valores entre parenteses, numeros e variaveis. Essa abordagem permite que o sistema resolva expressoes simples de maneira previsivel e proxima do comportamento esperado em linguagens de programacao reais.
+
+O sistema tambem identifica erros comuns, como uso de variaveis nao declaradas, divisao por zero ou expressoes mal formadas. Quando ocorre um erro, a execucao e interrompida e a mensagem e exibida na interface, ajudando o usuario a entender o problema.
+
+\section{Condicionais}
+
+A estrutura condicional foi implementada com suporte a \texttt{if} e \texttt{else}. O compilador avalia a condicao informada apos o \texttt{if}. Se o resultado for verdadeiro, o bloco indentado abaixo do \texttt{if} e executado. Caso contrario, se existir um bloco \texttt{else}, esse segundo bloco e executado.
+
+Exemplo de codigo aceito pelo compilador:
+
+\begin{lstlisting}
+vida = 0
+
+if vida > 0:
+    print("Personagem vivo")
+else:
+    print("Personagem derrotado")
+\end{lstlisting}
+
+Esse recurso atende ao requisito de tomada de decisao, permitindo que o programa execute caminhos diferentes de acordo com os valores das variaveis.
+
+\section{Estrutura de Repeticao}
+
+Para o requisito de repeticao, o projeto implementou o comando \texttt{while}. O compilador avalia a condicao do \texttt{while} e executa o bloco indentado enquanto essa condicao permanecer verdadeira.
+
+Exemplo de codigo aceito:
+
+\begin{lstlisting}
+x = 0
+while x < 5:
+    print(x)
+    x = x + 1
+\end{lstlisting}
+
+Nesse exemplo, a variavel \texttt{x} e incrementada a cada repeticao. O laco termina quando \texttt{x} deixa de ser menor que \texttt{5}. Esse comportamento demonstra o uso de variaveis, comparadores, expressoes e repeticao em conjunto.
+
+Tambem foi implementado um limite de seguranca para evitar repeticoes infinitas. Caso um programa possua uma condicao que nunca se torna falsa, a execucao e interrompida automaticamente apos determinado numero de iteracoes.
+
+\section{Validacao de Escopo por Indentacao}
+
+Ao contrario de linguagens que delimitam blocos com chaves, Python utiliza recuo textual. O motor desenvolvido calcula a quantidade de espacos antes do primeiro caractere valido de cada linha. Quando encontra comandos que iniciam blocos, como \texttt{if} e \texttt{while}, o compilador chama recursivamente a rotina de processamento para o nivel seguinte de indentacao.
 
 Essa estrategia permite isolar blocos internos e encerrar a execucao do escopo atual quando a indentacao retorna ao nivel anterior. O projeto adotou quatro espacos como padrao de indentacao para facilitar a validacao e a demonstracao.
 
 \section{Interface Grafica}
 
-A interface foi desenvolvida com Windows Forms. A janela principal possui um editor de codigo a esquerda, um console de saida a direita e um painel superior com comandos para criar, abrir, salvar e executar arquivos Python. O tema escuro facilita a leitura e aproxima a aplicacao de uma IDE moderna.
+A interface foi desenvolvida com Windows Forms. A janela principal possui um editor de codigo a esquerda, um console de saida a direita, uma area de compilacao e um painel superior com comandos para criar, abrir, salvar e executar arquivos Python. Esse conjunto de recursos faz com que o compilador tenha uma experiencia parecida com uma mini IDE, facilitando a escrita e os testes dos algoritmos.
 
-\section{Uso de Inteligencia Artificial e Resolucao de Erros}
+A escolha por uma interface visual teve como finalidade tornar a demonstracao mais clara. Em vez de executar o compilador apenas pelo terminal, o usuario consegue visualizar o codigo, a saida e as mensagens de compilacao em uma mesma janela. Isso facilita a apresentacao para a turma e deixa evidente o funcionamento de cada etapa.
 
-Durante o desenvolvimento, ferramentas de inteligencia artificial foram utilizadas como apoio para organizar a arquitetura do interpretador, revisar a logica de percorrimento de blocos e melhorar mensagens de erro. Um ponto corrigido foi a necessidade de permitir atribuicoes como \texttt{x = x + 1}, essenciais para demonstrar lacos \texttt{while} funcionais.
+\section{Tratamento de Erros}
 
-Tambem foi adicionado um limite de seguranca para repeticoes, evitando que programas com condicoes sempre verdadeiras deixem a aplicacao presa em execucao infinita.
+Durante o desenvolvimento, foram considerados erros comuns que poderiam ocorrer ao escrever codigo no editor. O sistema foi preparado para emitir mensagens quando encontra problemas como:
+
+\begin{itemize}
+    \item comando nao reconhecido;
+    \item uso incorreto de indentacao;
+    \item \texttt{else} sem \texttt{if} correspondente;
+    \item variavel utilizada antes de receber valor;
+    \item expressao aritmetica invalida;
+    \item divisao por zero;
+    \item repeticao interrompida por limite de seguranca.
+\end{itemize}
+
+Essas mensagens sao importantes porque aproximam o projeto do comportamento de ferramentas reais de desenvolvimento, nas quais o programador precisa receber retorno claro sobre os erros do codigo.
+
+\section{Testes e Exemplos}
+
+Foram criados arquivos de exemplo para validar o funcionamento do compilador. O arquivo \texttt{demo.py} demonstra o uso de \texttt{while}, \texttt{if}, \texttt{else}, impressao e incremento de variavel. O arquivo \texttt{if\_else.py} apresenta um exemplo menor, focado apenas na estrutura condicional. Ja o arquivo \texttt{combate\_chefe.py} utiliza uma situacao mais elaborada, combinando laco, condicoes e calculos.
+
+Os testes foram feitos executando os exemplos na propria interface do sistema e verificando se a saida exibida no console correspondia ao comportamento esperado. Tambem foi realizada compilacao do projeto pelo .NET para confirmar que o codigo C\# nao possuia erros de construcao.
+
+\section{Versionamento e Organizacao da Entrega}
+
+O projeto foi versionado com Git e preparado para entrega em repositorio GitHub. O versionamento inclui o codigo-fonte do compilador, os exemplos de teste, os recursos visuais da interface e o relatorio em LaTeX.
+
+A organizacao em repositorio permite acompanhar a evolucao do trabalho, registrar alteracoes realizadas e facilitar a colaboracao entre os integrantes. Para a entrega final, o repositorio deve conter tanto o compilador quanto o relatorio, conforme solicitado nas regras da apresentacao.
+
+\section{Participacao da Equipe}
+
+O desenvolvimento foi conduzido de forma colaborativa, envolvendo pesquisa, implementacao, testes e ajustes de interface. A equipe trabalhou na definicao do escopo da linguagem, na escolha das funcionalidades essenciais, na construcao dos exemplos e na revisao do comportamento do compilador.
+
+As principais decisoes tecnicas foram tomadas manualmente pela equipe, como a escolha de C\# com Windows Forms, a adocao de uma sintaxe inspirada em Python, o uso de quatro espacos para indentacao, a separacao entre interface e motor de interpretacao e a limitacao proposital da linguagem para fins academicos.
+
+\section{Apoio de Inteligencia Artificial}
+
+A inteligencia artificial foi utilizada apenas como ferramenta de apoio em momentos especificos do desenvolvimento, principalmente para revisar ideias, sugerir organizacao de texto, auxiliar na identificacao de possiveis erros e melhorar a clareza de algumas mensagens. A implementacao, os testes, as escolhas de tecnologia e a definicao do funcionamento principal foram conduzidos pela equipe.
+
+Um exemplo de ajuste realizado durante o desenvolvimento foi a correcao do comportamento de atribuicoes como \texttt{x = x + 1}, necessarias para que lacos \texttt{while} funcionassem corretamente. Outro ponto revisado foi a inclusao de um limite de seguranca para repeticoes, evitando que programas com condicoes sempre verdadeiras deixassem a aplicacao presa.
+
+Assim, o uso de IA nao substituiu o trabalho da equipe. Ele serviu como apoio complementar, semelhante a uma consulta tecnica, enquanto a construcao, validacao e apresentacao do projeto permaneceram sob responsabilidade dos integrantes.
+
+\section{Linguagem Tecnica e Explicacao Simplificada}
+
+Em termos tecnicos, o \textit{hel\_py} pode ser descrito como um compilador didatico para uma linguagem simplificada baseada em Python, apresentado dentro de uma interface grafica com caracteristicas de mini IDE. Ele possui uma tabela de simbolos para armazenar variaveis, um avaliador de expressoes aritmeticas, um avaliador de condicoes booleanas e um mecanismo de controle de escopo por indentacao.
+
+De forma mais simples, o programa funciona como um compilador visual: o usuario escreve um codigo, manda compilar e executa o resultado na propria tela. O sistema analisa cada linha, entende se ela representa uma variavel, uma impressao, uma condicao ou uma repeticao, e executa a acao correspondente. Quando encontra um bloco indentado, ele entende que aquele trecho pertence ao comando anterior, como acontece em Python.
 
 \section{Conclusao}
 
-A construcao do \textit{hel\_py} consolida conceitos de analise lexica, interpretacao, controle de fluxo e manipulacao de estruturas de dados em memoria. O projeto demonstra como uma aplicacao C\# pode reconhecer elementos fundamentais de Python e executar comandos simples em uma interface grafica propria.
+A construcao do \textit{hel\_py} consolidou conceitos importantes de compiladores e interpretadores, como analise de linhas, reconhecimento de comandos, avaliacao de expressoes, manipulacao de variaveis, controle de fluxo e validacao de escopo. O projeto tambem permitiu aplicar conhecimentos de interface grafica, organizacao de codigo, tratamento de erros e versionamento, resultando em um compilador didatico mais completo por estar integrado a uma interface de mini IDE.
+
+Embora a linguagem interpretada seja limitada, ela atende aos requisitos principais da atividade ao oferecer suporte a condicional \texttt{if else}, repeticao com \texttt{while}, expressoes aritmeticas e execucao de comandos em uma interface propria. Dessa forma, o trabalho demonstra de maneira pratica como uma aplicacao em C\# pode interpretar instrucoes inspiradas em Python e transformar texto escrito pelo usuario em comportamento executavel.
 
 \end{document}

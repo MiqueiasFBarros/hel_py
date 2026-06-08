@@ -246,13 +246,13 @@ partial class Form1
         // lblSidebarFooter
         // 
         lblSidebarFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        lblSidebarFooter.Font = new Font("Segoe UI", 8.5F);
+        lblSidebarFooter.Font = new Font("Segoe UI", 7.25F);
         lblSidebarFooter.ForeColor = Color.FromArgb(174, 179, 181);
-        lblSidebarFooter.Location = new Point(20, 690);
+        lblSidebarFooter.Location = new Point(18, 558);
         lblSidebarFooter.Name = "lblSidebarFooter";
-        lblSidebarFooter.Size = new Size(148, 44);
+        lblSidebarFooter.Size = new Size(158, 156);
         lblSidebarFooter.TabIndex = 8;
-        lblSidebarFooter.Text = "Windows Forms + C#\nProjeto AV2";
+        lblSidebarFooter.Text = "Projeto AV2\n\nArthur da Silva - 01622306\nGabriel Luan Soares de Oliveira - 01624195\nJoão Victor Florêncio - 01605737\nLucas Enthony Gomes Ferreira - 01576401\nMiqueias Ferreira Barros - 01595460\nPatrick Jose Viana Costa - 01594218";
         lblSidebarFooter.Click += lblSidebarFooter_Click;
         // 
         // pnlWorkspace
