@@ -178,15 +178,69 @@ Os testes foram feitos executando os exemplos na propria interface do sistema e 
 
 \section{Versionamento e Organizacao da Entrega}
 
-O projeto foi versionado com Git e preparado para entrega em repositorio GitHub. O versionamento inclui o codigo-fonte do compilador, os exemplos de teste, os recursos visuais da interface e o relatorio em LaTeX.
+Durante praticamente todo o desenvolvimento, a organizacao e o controle das versoes do projeto foram feitos pelo Google Drive. A equipe utilizou esse formato porque ja era o metodo adotado em outros trabalhos academicos, facilitando o compartilhamento dos arquivos, a troca de versoes e o acompanhamento das alteracoes realizadas durante a construcao do compilador.
 
-A organizacao em repositorio permite acompanhar a evolucao do trabalho, registrar alteracoes realizadas e facilitar a colaboracao entre os integrantes. Para a entrega final, o repositorio deve conter tanto o compilador quanto o relatorio, conforme solicitado nas regras da apresentacao.
+Quando o projeto ja estava praticamente pronto, com o compilador implementado e restando apenas ajustes finais, a equipe organizou o codigo no Git e preparou o repositorio no GitHub. A partir dessa etapa, o repositorio passou a reunir a versao final do codigo-fonte do compilador, os exemplos de teste, os recursos visuais da interface e o relatorio em LaTeX.
+
+Assim, o Google Drive foi utilizado como principal meio de versionamento durante a construcao do trabalho, enquanto o GitHub foi utilizado para formalizar a entrega final em um repositorio. Essa etapa permitiu disponibilizar tanto o compilador quanto o relatorio conforme solicitado nas regras da apresentacao.
 
 \section{Participacao da Equipe}
 
 O desenvolvimento foi conduzido de forma colaborativa, envolvendo pesquisa, implementacao, testes e ajustes de interface. A equipe trabalhou na definicao do escopo da linguagem, na escolha das funcionalidades essenciais, na construcao dos exemplos e na revisao do comportamento do compilador.
 
 As principais decisoes tecnicas foram tomadas manualmente pela equipe, como a escolha de C\# com Windows Forms, a adocao de uma sintaxe inspirada em Python, o uso de quatro espacos para indentacao, a separacao entre interface e motor de interpretacao e a limitacao proposital da linguagem para fins academicos.
+
+\section{Divisao de Atividades por Integrante}
+
+A divisao das atividades foi organizada para que todos os integrantes participassem diretamente do desenvolvimento do projeto, incluindo escrita de codigo, testes, revisao, documentacao e preparacao da apresentacao. Embora algumas responsabilidades tenham ficado mais concentradas em determinados integrantes, todos colaboraram com partes de codigo e ajustes necessarios para o funcionamento do compilador.
+
+\subsection*{Arthur da Silva}
+
+Arthur da Silva contribuiu com a pesquisa inicial sobre compiladores, interpretadores e linguagens de programacao. Sua participacao ajudou na definicao do escopo do projeto, principalmente na escolha de trabalhar com um subconjunto da linguagem Python, mantendo apenas comandos essenciais para a proposta academica.
+
+Na parte de codigo, Arthur colaborou com ajustes e revisoes relacionados aos comandos basicos da linguagem, principalmente na organizacao dos exemplos de atribuicao, uso de \texttt{print()} e estrutura dos blocos de codigo. Tambem auxiliou na verificacao dos comandos que seriam mais adequados para demonstrar o funcionamento de um compilador didatico em sala.
+
+Durante os testes, Arthur auxiliou na validacao dos exemplos utilizados na apresentacao, verificando se as estruturas de \texttt{if}, \texttt{else} e \texttt{while} estavam adequadas e faceis de explicar. Sua contribuicao foi importante para garantir que os exemplos fossem compreensiveis para pessoas que nao conhecem profundamente a parte tecnica do projeto.
+
+\subsection*{Gabriel Luan Soares de Oliveira}
+
+Gabriel Luan Soares de Oliveira participou da organizacao dos testes funcionais e da revisao do comportamento do compilador durante a execucao dos codigos de exemplo. Ele auxiliou na verificacao de situacoes envolvendo variaveis, repeticoes, condicoes, impressoes no console e mensagens exibidas ao usuario.
+
+Na implementacao, Gabriel colaborou com ajustes ligados ao comportamento das condicoes e dos exemplos de execucao, ajudando a revisar trechos de codigo relacionados a comparadores, variaveis e saidas esperadas. Sua participacao tambem envolveu a analise dos erros encontrados durante o desenvolvimento, especialmente em casos de comandos escritos incorretamente, indentacao invalida, estruturas condicionais incompletas e tentativas de uso de variaveis antes da atribuicao.
+
+Gabriel tambem colaborou na verificacao dos exemplos \texttt{demo.py}, \texttt{if\_else.py} e \texttt{combate\_chefe.py}, observando se cada arquivo realmente demonstrava uma funcionalidade importante do compilador. Com isso, ajudou a separar exemplos simples para explicacao rapida e exemplos mais completos para validacao geral.
+
+\subsection*{Joao Victor Florencio}
+
+Joao Victor Florencio ficou mais responsavel pela parte de interface grafica e usabilidade da aplicacao. Sua participacao esteve ligada a organizacao visual da tela, observando se o editor, os botoes, o console de saida e a area de compilacao estavam bem distribuidos e faceis de utilizar.
+
+Na parte de codigo, Joao colaborou com ajustes da interface em Windows Forms, revisando elementos visuais, posicionamento de componentes e textos exibidos ao usuario. Tambem ajudou a verificar se o usuario conseguiria criar, abrir, salvar e executar arquivos de maneira simples. Essa contribuicao foi importante para que o projeto nao fosse apenas funcional no motor do compilador, mas tambem apresentavel e pratico para uso durante a demonstracao.
+
+Joao tambem auxiliou na organizacao dos elementos visuais da tela, como a distribuicao entre editor e console, a presenca de uma area de compilacao e a clareza dos botoes principais. Alem disso, participou da revisao dos textos exibidos na interface, para que os comandos e mensagens fossem diretos e compreensiveis durante a apresentacao.
+
+\subsection*{Lucas Enthony Gomes Ferreira}
+
+Lucas Enthony Gomes Ferreira participou da criacao e revisao dos exemplos de codigo usados para testar o compilador. Sua contribuicao envolveu a elaboracao de algoritmos simples e objetivos, capazes de demonstrar as funcionalidades obrigatorias do projeto, como condicional \texttt{if else} e repeticao com \texttt{while}.
+
+Na parte de implementacao, Lucas colaborou com trechos e ajustes relacionados aos codigos de exemplo, validando se os comandos escritos estavam de acordo com a sintaxe aceita pelo compilador. Ele tambem auxiliou na validacao das saidas esperadas, comparando o resultado exibido no console com o comportamento previsto dos algoritmos. Essa etapa foi importante para comprovar que o compilador executava corretamente os comandos reconhecidos pela linguagem.
+
+Lucas colaborou especialmente na montagem de cenarios que combinavam mais de uma funcionalidade, como variaveis sendo alteradas dentro de um \texttt{while}, condicoes avaliadas depois de uma repeticao e mensagens impressas de acordo com o resultado de um \texttt{if else}. Esse trabalho ajudou a demonstrar que os recursos do compilador funcionavam em conjunto, e nao apenas de forma isolada.
+
+\subsection*{Miqueias Ferreira Barros}
+
+Miqueias Ferreira Barros atuou diretamente na implementacao principal do projeto em C\#, incluindo a integracao entre editor, botoes, console, area de compilacao e motor de execucao. Sua participacao envolveu a organizacao dos arquivos do projeto e a montagem da estrutura geral da aplicacao.
+
+Tambem contribuiu com o desenvolvimento do motor de compilacao e execucao, incluindo reconhecimento de comandos, avaliacao de expressoes aritmeticas, controle de variaveis, validacao de indentacao, suporte a \texttt{if}, \texttt{else}, \texttt{while} e exibicao de mensagens de erro. Alem disso, participou da organizacao do repositorio, do README e da documentacao em LaTeX.
+
+Na parte tecnica, Miqueias trabalhou na logica de leitura linha por linha, no tratamento de comentarios, na identificacao de atribuicoes, na avaliacao de comparadores e no controle dos blocos por indentacao. Tambem integrou os eventos dos botoes da interface, como novo arquivo, abrir, salvar, salvar como e executar, conectando a experiencia visual ao funcionamento interno do compilador. Junto com Patrick, tambem participou dos testes finais do programa, executando exemplos e conferindo se os resultados estavam corretos.
+
+\subsection*{Patrick Jose Viana Costa}
+
+Patrick Jose Viana Costa participou da implementacao e dos testes do projeto, colaborando com ajustes de codigo e com a validacao final do compilador. Sua participacao ajudou a verificar se o projeto atendia aos pontos solicitados pelo professor, como compilador, condicional, laco, relatorio em LaTeX e versionamento.
+
+Na parte de codigo, Patrick colaborou com revisoes e pequenos ajustes ligados aos exemplos, fluxos de execucao e comportamento esperado da aplicacao. Junto com Miqueias, testou os principais fluxos do programa, incluindo abrir arquivos \texttt{.py}, salvar codigo, executar exemplos, observar a saida no console e conferir se as mensagens de erro estavam coerentes.
+
+Patrick tambem verificou cenarios de falha, como indentacao incorreta, uso de \texttt{else} sem \texttt{if}, variaveis nao declaradas e repeticoes que poderiam gerar comportamento inesperado. Alem disso, auxiliou na comparacao entre a saida esperada e a saida real dos exemplos e participou da preparacao da explicacao tecnica em linguagem acessivel, colaborando para que a equipe conseguisse apresentar o funcionamento do compilador de forma clara para a turma.
 
 \section{Apoio de Inteligencia Artificial}
 
